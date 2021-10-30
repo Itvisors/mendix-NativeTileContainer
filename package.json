@@ -1,0 +1,31 @@
+{
+  "name": "nativetilecontainer",
+  "widgetName": "NativeTileContainer",
+  "version": "1.0.0",
+  "description": "Native Tile Container",
+  "copyright": "ITvisors 2021",
+  "author": "Marcel Groeneweg",
+  "engines": {
+    "node": ">=12"
+  },
+  "config": {
+    "projectPath": "./test/"
+  },
+  "packagePath": "itvisors",
+  "scripts": {
+    "start": "pluggable-widgets-tools start:native",
+    "build": "pluggable-widgets-tools build:native",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:native"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Marcel Groeneweg/nativetilecontainer/issues"
+  },
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "^9.0.0"
+  },
+  "dependencies": {}
+}
