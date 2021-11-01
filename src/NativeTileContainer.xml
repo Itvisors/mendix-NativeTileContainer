@@ -5,12 +5,38 @@
         xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Native Tile Container</name>
     <description>Native Tile Container</description>
-    <icon/>
+    <studioProCategory>Structure</studioProCategory>
     <properties>
         <propertyGroup caption="General">
-            <property key="yourName" type="string" required="false">
-                <caption>Name</caption>
-                <description>Enter your name</description>
+            <property key="tileList" type="object" isList="true">
+                <caption>Tiles</caption>
+                <description></description>
+                <properties>
+                    <propertyGroup caption="Tile">
+                        <property key="tileVisible" type="expression"  defaultValue="true">
+                            <caption>Visible</caption>
+                            <description></description>
+                            <returnType type="Boolean" />
+                        </property>
+                        <property key="content" type="widgets">
+                            <caption>Content</caption>
+                            <description></description>
+                        </property>
+                    </propertyGroup>
+                </properties>
+            </property>
+            <property key="defaultTileWidth" type="integer" defaultValue="150">
+                <caption>Default width</caption>
+                <description>Default width for each tile</description>
+            </property>
+            <property key="maximumTileWidth" type="integer" defaultValue="200">
+                <caption>Maximum width</caption>
+                <description>Maximum width for each tile</description>
+            </property>
+            <property key="centerIfTooSmall" type="expression" required="false" defaultValue="false">
+                <caption>Center</caption>
+                <description>If true, the contents are centered if the tiles are too small to fill the available width</description>
+                <returnType type="Boolean" />
             </property>
         </propertyGroup>
     </properties>
