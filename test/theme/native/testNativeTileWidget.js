@@ -37,6 +37,22 @@ export const btnTileIconSuccess = { ...btnTileCommon,
     }
 };
 
+export const btnTileIconWarning = { ...btnTileCommon,
+    icon: {
+        color: brand.warning,
+        fontWeight: font.weightBold,
+        size: adjustFont(35)
+    }
+};
+
+export const btnTileIconDanger = { ...btnTileCommon,
+    icon: {
+        color: brand.danger,
+        fontWeight: font.weightBold,
+        size: adjustFont(35)
+    }
+};
+
 export const btnTileBadgePrimary = { ...btnTileCommon,
     caption: {
         fontWeight: font.weightBold,
