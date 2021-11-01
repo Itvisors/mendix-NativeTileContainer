@@ -1,6 +1,5 @@
-## NativeTileContainer
-Easily create tiled dashboard or menu pages. Enlarge tiles a lit to fit screen width.
-
+## Native Tile Container
+Easily create tiled dashboard or menu pages. Enlarge tiles a little to fit screen width.
 
 ## Why?
 React Native and Mendix support flex layout so creating a responsive page with a few tiles should be easy right? 
@@ -31,7 +30,7 @@ By default, the widget will add margin equal to `Spacing inner large` to the rig
 
 You can overrule the spacing by creating a custom class in your native theme.
 
-The test project styling uses class `tileContainer` and Atlas class `card` to create the tile effect. To create the large button icons, the test project contains several sample classes.
+The test project styling uses custom class `tileContainer` and Atlas class `card` to create the tile effect. To create the large button icons, the test project contains several sample classes.
 [Link to the file on the GitHub repo](
 https://github.com/Itvisors/mendix-NativeTileContainer/blob/main/test/theme/native/testNativeTileWidget.js)
 

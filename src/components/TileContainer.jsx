@@ -6,7 +6,7 @@ export class TileContainer extends Component {
     render() {
         const { layoutWidth, defaultTileWidth, maximumTileWidth } = this.props;
         if (!layoutWidth) {
-            console.info("TileContainer.render: no layout");
+            // console.info("TileContainer.render: no layout");
             return null;
         }
         // Filter the tiles on visible tiles only
@@ -19,22 +19,22 @@ export class TileContainer extends Component {
         let availableSpace = 0;
         if (tilesPerRow <= visibleTiles.length) {
             availableSpace = layoutWidth % defaultTileWidth;
-            console.info("TileContainer availableSpace: " + availableSpace + " for " + tilesPerRow + " tiles per row");
+            // console.info("TileContainer availableSpace: " + availableSpace + " for " + tilesPerRow + " tiles per row");
         } else {
             tilesPerRow = visibleTiles.length;
             availableSpace = 0;
-            console.info("TileContainer availableSpace: only " + tilesPerRow + " tiles, less than one row");
+            // console.info("TileContainer availableSpace: only " + tilesPerRow + " tiles, less than one row");
         }
-        console.info("TileContainer.render: layoutWidth: " + layoutWidth + ", tilesPerRow: " + tilesPerRow);
+        // console.info("TileContainer.render: layoutWidth: " + layoutWidth + ", tilesPerRow: " + tilesPerRow);
         // Available space can be divided by the number of tiles?
         if (availableSpace >= tilesPerRow) {
             const additionalTileWidth = Math.floor(availableSpace / tilesPerRow);
             if (defaultTileWidth + additionalTileWidth < maximumTileWidth) {
                 tileWidth = defaultTileWidth + additionalTileWidth;
-                console.info("TileContainer.render adjust tile width to " + tileWidth);
+                // console.info("TileContainer.render adjust tile width to " + tileWidth);
             } else {
                 tileWidth = maximumTileWidth;
-                console.info("TileContainer.render adjust tile width to maximum " + tileWidth);
+                // console.info("TileContainer.render adjust tile width to maximum " + tileWidth);
             }
         }
         return (

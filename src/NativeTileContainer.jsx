@@ -36,14 +36,14 @@ export class NativeTileContainer extends Component {
             }
         };
         if (this.props.centerIfTooSmall?.value) {
-            console.info("NativeTileContainer.render: center the contents");
+            // console.info("NativeTileContainer.render: center the contents");
             alignmentStyle.container.justifyContent = "center";
         }
         const styles = mergeNativeStyles(defaultStyle, [alignmentStyle].concat(this.props.style));
         if (this.state.layoutWidth > 0) {
-            console.info("NativeTileContainer.render: " + this.state.layoutWidth);
+            // console.info("NativeTileContainer.render: " + this.state.layoutWidth);
         } else {
-            console.info("NativeTileContainer.render: no layout");
+            // console.info("NativeTileContainer.render: no layout");
         }
         return (
             <View style={styles.container} onLayout={event => this.handleLayoutEvent(event)}>
