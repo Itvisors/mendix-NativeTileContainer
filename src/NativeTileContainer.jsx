@@ -5,17 +5,19 @@ import { mergeNativeStyles } from "@mendix/pluggable-widgets-tools";
 
 const defaultStyle = {
     container: {
+        flexDirection: "row",
+        justifyContent: "flex-start",
         alignItems: "flex-start",
-        flex: 1
+        flex: -1
     },
     tileContainer: {
-        flex: 1,
+        flex: -1,
         flexDirection: "row",
         flexWrap: "wrap"
     },
     tile: {
-        paddingRight: 16,
-        paddingBottom: 16
+        paddingRight: 32,
+        paddingBottom: 32
     }
 };
 
@@ -25,13 +27,19 @@ export class NativeTileContainer extends Component {
     };
 
     render() {
+        // Create a separate style class for the alignment.
+        // Note that justifyContent must also exist on the default style for this to work.
+        // Otherwise, mergeNativeStyles will ignore it.
+        const alignmentStyle = {
+            container: {
+                justifyContent: "flex-start"
+            }
+        };
         if (this.props.centerIfTooSmall?.value) {
             console.info("NativeTileContainer.render: center the contents");
-            defaultStyle.container = {
-                alignItems: "center"
-            };
+            alignmentStyle.container.justifyContent = "center";
         }
-        const styles = mergeNativeStyles(defaultStyle, this.props.style);
+        const styles = mergeNativeStyles(defaultStyle, [alignmentStyle].concat(this.props.style));
         if (this.state.layoutWidth > 0) {
             console.info("NativeTileContainer.render: " + this.state.layoutWidth);
         } else {

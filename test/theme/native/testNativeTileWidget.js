@@ -4,8 +4,9 @@ import adjustFont from "../../themesource/atlas_core/native/core/helpers/_functi
 export const tileContainer = {
     container: {
         aspectRatio: 1,
-        paddingTop: spacing.large,
-        alignItems: "center"
+        paddingVertical: spacing.regular,
+        alignItems: "center",
+        justifyContent: "space-between"
     }
 };
 
@@ -15,9 +16,8 @@ const btnTileCommon = {
         borderRadius: 0,
         rippleColor: contrast.lowest,
         backgroundColor: "transparent",
-        paddingVertical: 5,
-        paddingHorizontal: 0,
-        height: 80
+        padding: 0,
+        height: 70
     }
 };
 
@@ -25,7 +25,7 @@ export const btnTileIcon = { ...btnTileCommon,
     icon: {
         color: brand.primary,
         fontWeight: font.weightBold,
-        size: adjustFont(40)
+        size: adjustFont(35)
     }
 };
 
@@ -33,15 +33,15 @@ export const btnTileIconSuccess = { ...btnTileCommon,
     icon: {
         color: brand.success,
         fontWeight: font.weightBold,
-        size: adjustFont(40)
+        size: adjustFont(35)
     }
 };
 
 export const btnTileBadgePrimary = { ...btnTileCommon,
     caption: {
         fontWeight: font.weightBold,
-        fontSize: adjustFont(40),
-        lineHeight: adjustFont(40),
+        fontSize: adjustFont(35),
+        lineHeight: adjustFont(35),
         color: brand.primary
     }
 };
@@ -49,8 +49,8 @@ export const btnTileBadgePrimary = { ...btnTileCommon,
 export const btnTileBadgeSuccess = { ...btnTileCommon,
     caption: {
         fontWeight: font.weightBold,
-        fontSize: adjustFont(40),
-        lineHeight: adjustFont(40),
+        fontSize: adjustFont(35),
+        lineHeight: adjustFont(35),
         color: brand.success
     }
 };
@@ -58,8 +58,8 @@ export const btnTileBadgeSuccess = { ...btnTileCommon,
 export const btnTileBadgeWarning = { ...btnTileCommon,
     caption: {
         fontWeight: font.weightBold,
-        fontSize: adjustFont(40),
-        lineHeight: adjustFont(40),
+        fontSize: adjustFont(35),
+        lineHeight: adjustFont(35),
         color: brand.warning
     }
 };
@@ -67,8 +67,8 @@ export const btnTileBadgeWarning = { ...btnTileCommon,
 export const btnTileBadgedanger = { ...btnTileCommon,
     caption: {
         fontWeight: font.weightBold,
-        fontSize: adjustFont(40),
-        lineHeight: adjustFont(40),
+        fontSize: adjustFont(35),
+        lineHeight: adjustFont(35),
         color: brand.danger
     }
 };
