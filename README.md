@@ -20,9 +20,13 @@ This widget aims to make life easier when creating responsive tile based pages t
 - Tiles will always be the same width
 - Optionally center the tile set if smaller than available space. 
 
-## Usage
+## Limitations
+- Widget is intended for content that can be sized equally across the page.
+
+## Installation
 Place the widget on the page. Create as many containers as required. Use the visibility expression to conditionally hide tiles to prevent creating gaps in the tile set.
 
+## Configuration
 The default width should accommodate the contents, while the maximum width prevents stretching the tiles beyond breaking point. Make sure the maximum width allows for sufficient space to adjust for different screen sizes, making the page layout similar on low end and high end devices.
 
 ## Styling
