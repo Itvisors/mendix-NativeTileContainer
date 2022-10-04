@@ -40,11 +40,11 @@ export class NativeTileContainer extends Component {
             alignmentStyle.container.justifyContent = "center";
         }
         const styles = mergeNativeStyles(defaultStyle, [alignmentStyle].concat(this.props.style));
-        if (this.state.layoutWidth > 0) {
-            // console.info("NativeTileContainer.render: " + this.state.layoutWidth);
-        } else {
-            // console.info("NativeTileContainer.render: no layout");
-        }
+        // if (this.state.layoutWidth > 0) {
+        //     console.info("NativeTileContainer.render: " + this.state.layoutWidth);
+        // } else {
+        //     console.info("NativeTileContainer.render: no layout");
+        // }
         return (
             <View style={styles.container} onLayout={event => this.handleLayoutEvent(event)}>
                 {this.state.layoutWidth > 0 && (
