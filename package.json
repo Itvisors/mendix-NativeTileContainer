@@ -1,7 +1,7 @@
 {
   "name": "nativetilecontainer",
   "widgetName": "NativeTileContainer",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Native Tile Container",
   "copyright": "ITvisors 2021",
   "author": "Marcel Groeneweg",

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget id="itvisors.nativetilecontainer.NativeTileContainer" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
-        supportedPlatform="Native"
-        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+<widget id="itvisors.nativetilecontainer.NativeTileContainer" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Native"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Tile Container</name>
     <description>Native Tile Container</description>
     <studioProCategory>Structure</studioProCategory>
@@ -13,7 +12,11 @@
                 <description></description>
                 <properties>
                     <propertyGroup caption="Tile">
-                        <property key="tileVisible" type="expression"  defaultValue="true">
+                        <property key="tileLabel" type="string" required="false">
+                            <caption>Tile label</caption>
+                            <description>Tile label, informational only</description>
+                        </property>
+                        <property key="tileVisible" type="expression" defaultValue="true">
                             <caption>Visible</caption>
                             <description></description>
                             <returnType type="Boolean" />
