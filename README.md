@@ -29,6 +29,8 @@ Place the widget on the page. Create as many containers as required. Use the vis
 ## Configuration
 The default width should accommodate the contents, while the maximum width prevents stretching the tiles beyond breaking point. Make sure the maximum width allows for sufficient space to adjust for different screen sizes, making the page layout similar on low end and high end devices.
 
+Additionally, each tile can have a label set on it. This is not rendered, only informational to easily locate a tile in the property list.
+
 ## Styling
 By default, the widget will add margin equal to `Spacing inner large` to the right and bottom of each tile. On your page, specify `Inner large` for `Spacing left`, do not specify spacing right. 
 
