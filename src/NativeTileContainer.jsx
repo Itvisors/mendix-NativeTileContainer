@@ -46,7 +46,11 @@ export class NativeTileContainer extends Component {
         //     console.info("NativeTileContainer.render: no layout");
         // }
         return (
-            <View style={styles.container} onLayout={event => this.handleLayoutEvent(event)}>
+            <View
+                style={styles.container}
+                onLayout={event => this.handleLayoutEvent(event)}
+                testID={`${this.props.name}$outercontainer`}
+            >
                 {this.state.layoutWidth > 0 && (
                     <TileContainer
                         styles={styles}
@@ -54,6 +58,7 @@ export class NativeTileContainer extends Component {
                         tileList={this.props.tileList}
                         defaultTileWidth={this.props.defaultTileWidth}
                         maximumTileWidth={this.props.maximumTileWidth}
+                        widgetName={this.props.name}
                     />
                 )}
             </View>

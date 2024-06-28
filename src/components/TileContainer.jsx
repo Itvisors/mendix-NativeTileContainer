@@ -36,9 +36,13 @@ export function TileContainer(props) {
         }
     }
     return (
-        <View style={props.styles.tileContainer}>
+        <View style={props.styles.tileContainer} testID={`${props.widgetName}$tilecontainer`}>
             {visibleTiles.map((tileItem, index) => (
-                <View key={"tile_" + index} style={[props.styles.tile, { width: tileWidth }]}>
+                <View
+                    key={"tile_" + index}
+                    style={[props.styles.tile, { width: tileWidth }]}
+                    testID={`${props.widgetName}$tile_${index}`}
+                >
                     {tileItem.content}
                 </View>
             ))}
