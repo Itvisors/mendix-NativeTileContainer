@@ -18,10 +18,12 @@ This widget aims to make life easier when creating responsive tile based pages t
 - Specify default and maximum tile width
 - Widget adjust tiles to fill available width where possible
 - Tiles will always be the same width
+- Specify fixed list of tile items or use a datasource
 - Optionally center the tile set if smaller than available space. 
 
 ## Limitations
 - Widget is intended for content that can be sized equally across the page.
+- When a datasource is used, all items are rendered. No optimization for large lists.
 
 ## Installation
 Place the widget on the page. Create as many containers as required. Use the visibility expression to conditionally hide tiles to prevent creating gaps in the tile set.
@@ -29,7 +31,9 @@ Place the widget on the page. Create as many containers as required. Use the vis
 ## Configuration
 The default width should accommodate the contents, while the maximum width prevents stretching the tiles beyond breaking point. Make sure the maximum width allows for sufficient space to adjust for different screen sizes, making the page layout similar on low end and high end devices.
 
-Additionally, each tile can have a label set on it. This is not rendered, only informational to easily locate a tile in the property list.
+Either a fixed list or a datasource can be used to show items. When using a datasource, be sure to keep the number of items small enough to keep your app usable. Showing large lists as tiles is probably not the best user experience.
+
+Additionally, each tile in the fixed list can have a label set on it. This is not rendered, only informational to easily locate a tile in the property list.
 
 ## Styling
 By default, the widget will add margin equal to `Spacing inner large` to the right and bottom of each tile. On your page, specify `Inner large` for `Spacing left`, do not specify spacing right. 
@@ -38,7 +42,7 @@ You can overrule the spacing by creating a custom class in your native theme.
 
 The test project styling uses custom class `tileContainer` and Atlas class `card` to create the tile effect. To create the large button icons, the test project contains several sample classes.
 [Link to the file on the GitHub repo](
-https://github.com/Itvisors/mendix-NativeTileContainer/blob/main/test/theme/native/testNativeTileWidget.js)
+https://github.com/Itvisors/mendix-NativeTileContainer/blob/main/test/themesource/testtile/native/testNativeTileWidgetStyles.js)
 
 You may of course create your own. The sample uses tiles, also larger containers to show lists can be used. As long as these can be shown using the same width. Height is up to you and could be different.
 
