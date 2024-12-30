@@ -7,7 +7,15 @@
     <studioProCategory>Structure</studioProCategory>
     <properties>
         <propertyGroup caption="General">
-            <property key="tileList" type="object" isList="true">
+            <property key="tileSource" type="enumeration" defaultValue="fixedList">
+                <caption>Tile source</caption>
+                <description></description>
+                <enumerationValues>
+                    <enumerationValue key="fixedList">Fixed list</enumerationValue>
+                    <enumerationValue key="datasource">Datasource</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="tileList" type="object" isList="true" required="false">
                 <caption>Tiles</caption>
                 <description></description>
                 <properties>
@@ -27,6 +35,14 @@
                         </property>
                     </propertyGroup>
                 </properties>
+            </property>
+            <property key="ds" type="datasource" isList="true" required="false">
+                <caption>Data source</caption>
+                <description></description>
+            </property>
+            <property key="dsContent" type="widgets" dataSource="ds" required="false">
+                <caption>Content</caption>
+                <description></description>
             </property>
             <property key="defaultTileWidth" type="integer" defaultValue="150">
                 <caption>Default width</caption>

@@ -1,4 +1,5 @@
-import { Component, createElement } from "react";
+import { createElement, useCallback, useMemo, useState } from "react";
+import { DatasourceTileContainer } from "./components/DatasourceTileContainer";
 import { TileContainer } from "./components/TileContainer";
 import { View } from "react-native";
 import { mergeNativeStyles } from "@mendix/pluggable-widgets-tools";
@@ -21,12 +22,28 @@ const defaultStyle = {
     }
 };
 
-export class NativeTileContainer extends Component {
-    state = {
-        layoutWidth: 0
-    };
+const TILESOURCE_FIXED_LIST = "fixedList";
+const TILESOURCE_DATASOURCE = "datasource";
 
-    render() {
+export function NativeTileContainer(props) {
+    const [layoutWidth, setLayoutWidth] = useState(0);
+
+    const handleLayoutEvent = useCallback(
+        event => {
+            // console.info("handleLayoutEvent");
+            const { layout } = event.nativeEvent;
+            if (layoutWidth !== layout.width) {
+                // console.info("handleLayoutEvent: set new width on state");
+                setLayoutWidth(layout.width);
+            } else {
+                // console.info("handleLayoutEvent: width not changed");
+            }
+        },
+        [layoutWidth]
+    );
+
+    const { centerIfTooSmall, style } = props;
+    const styles = useMemo(() => {
         // Create a separate style class for the alignment.
         // Note that justifyContent must also exist on the default style for this to work.
         // Otherwise, mergeNativeStyles will ignore it.
@@ -35,46 +52,54 @@ export class NativeTileContainer extends Component {
                 justifyContent: "flex-start"
             }
         };
-        if (this.props.centerIfTooSmall?.value) {
+        if (centerIfTooSmall?.value) {
             // console.info("NativeTileContainer.render: center the contents");
             alignmentStyle.container.justifyContent = "center";
         }
-        const styles = mergeNativeStyles(defaultStyle, [alignmentStyle].concat(this.props.style));
-        // if (this.state.layoutWidth > 0) {
-        //     console.info("NativeTileContainer.render: " + this.state.layoutWidth);
-        // } else {
-        //     console.info("NativeTileContainer.render: no layout");
-        // }
-        return (
-            <View
-                style={styles.container}
-                onLayout={event => this.handleLayoutEvent(event)}
-                testID={`${this.props.name}$outercontainer`}
-            >
-                {this.state.layoutWidth > 0 && (
-                    <TileContainer
-                        styles={styles}
-                        layoutWidth={this.state.layoutWidth}
-                        tileList={this.props.tileList}
-                        defaultTileWidth={this.props.defaultTileWidth}
-                        maximumTileWidth={this.props.maximumTileWidth}
-                        widgetName={this.props.name}
-                    />
-                )}
-            </View>
-        );
+        return mergeNativeStyles(defaultStyle, [alignmentStyle].concat(style));
+    }, [centerIfTooSmall, style]);
+
+    switch (props.tileSource) {
+        case TILESOURCE_FIXED_LIST:
+            if (!props.tileList || props.tileList.length === 0) return null;
+            break;
+
+        case TILESOURCE_DATASOURCE:
+            if (!props.ds?.items || !props.dsContent) return null;
+            break;
+
+        default:
+            return null;
     }
 
-    handleLayoutEvent(event) {
-        // console.info("handleLayoutEvent");
-        const { layout } = event.nativeEvent;
-        if (this.state.layoutWidth !== layout.width) {
-            // console.info("handleLayoutEvent: set new width on state");
-            this.setState({
-                layoutWidth: layout.width
-            });
-        } else {
-            // console.info("handleLayoutEvent: width not changed");
-        }
+    if (layoutWidth > 0) {
+        // console.info("NativeTileContainer: " + layoutWidth);
+    } else {
+        // console.info("NativeTileContainer: no layout");
     }
+    return (
+        <View style={styles.container} onLayout={handleLayoutEvent} testID={`${props.name}$outercontainer`}>
+            {layoutWidth > 0 && props.tileSource === TILESOURCE_FIXED_LIST && (
+                <TileContainer
+                    styles={styles}
+                    layoutWidth={layoutWidth}
+                    tileList={props.tileList}
+                    defaultTileWidth={props.defaultTileWidth}
+                    maximumTileWidth={props.maximumTileWidth}
+                    widgetName={props.name}
+                />
+            )}
+            {layoutWidth > 0 && props.tileSource === TILESOURCE_DATASOURCE && (
+                <DatasourceTileContainer
+                    styles={styles}
+                    layoutWidth={layoutWidth}
+                    dsItems={props.ds?.items}
+                    dsContent={props.dsContent}
+                    defaultTileWidth={props.defaultTileWidth}
+                    maximumTileWidth={props.maximumTileWidth}
+                    widgetName={props.name}
+                />
+            )}
+        </View>
+    );
 }

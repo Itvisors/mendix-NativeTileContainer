@@ -1,5 +1,6 @@
-import { brand, contrast, font, spacing } from "./custom-variables";
-import adjustFont from "../../themesource/atlas_core/native/core/helpers/_functions/adjustfont";
+import { brand, contrast, font, spacing } from "../../../theme/native/custom-variables";
+import adjustFont from "../../atlas_core/native/core/helpers/_functions/adjustfont";
+
 
 export const tileContainer = {
     container: {
@@ -53,8 +54,8 @@ export const btnTileIconDanger = { ...btnTileCommon,
     }
 };
 
-export const btnTileBadgePrimary = { ...btnTileCommon,
-    caption: {
+export const textTileBadgePrimary = {
+    text: {
         fontWeight: font.weightBold,
         fontSize: adjustFont(35),
         lineHeight: adjustFont(35),
@@ -62,8 +63,8 @@ export const btnTileBadgePrimary = { ...btnTileCommon,
     }
 };
 
-export const btnTileBadgeSuccess = { ...btnTileCommon,
-    caption: {
+export const textTileBadgeSuccess = {
+    text: {
         fontWeight: font.weightBold,
         fontSize: adjustFont(35),
         lineHeight: adjustFont(35),
@@ -71,8 +72,8 @@ export const btnTileBadgeSuccess = { ...btnTileCommon,
     }
 };
 
-export const btnTileBadgeWarning = { ...btnTileCommon,
-    caption: {
+export const textTileBadgeWarning = {
+    text: {
         fontWeight: font.weightBold,
         fontSize: adjustFont(35),
         lineHeight: adjustFont(35),
@@ -80,8 +81,8 @@ export const btnTileBadgeWarning = { ...btnTileCommon,
     }
 };
 
-export const btnTileBadgedanger = { ...btnTileCommon,
-    caption: {
+export const textTileBadgedanger = {
+    text: {
         fontWeight: font.weightBold,
         fontSize: adjustFont(35),
         lineHeight: adjustFont(35),
