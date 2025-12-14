@@ -1,7 +1,7 @@
 {
   "name": "nativetilecontainer",
   "widgetName": "NativeTileContainer",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Native Tile Container",
   "copyright": "ITvisors 2021",
   "author": "Marcel Groeneweg",
@@ -22,7 +22,7 @@
     "release": "pluggable-widgets-tools release:native"
   },
   "devDependencies": {
-    "@mendix/pluggable-widgets-tools": "^10.18.0"
+    "@mendix/pluggable-widgets-tools": "^10.21.0"
   },
   "dependencies": {},
   "resolutions": {
